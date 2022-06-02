@@ -18,7 +18,6 @@ public class DriverFactory {
         return driver;
     }
 
-
     public static void createDriver() {
 
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();

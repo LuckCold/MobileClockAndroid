@@ -2,20 +2,21 @@ package steps;
 
 import config.DriverFactory;
 import io.appium.java_client.android.AndroidDriver;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 
-
-public class Hooks {
+public class Hook {
     private static AndroidDriver driver;
+    static Scenario scenario;
 
 
-    @BeforeClass
+    @Before
     public static void setUp() {
       DriverFactory.getDriver();
     }
 
-    @AfterClass
+    @After
     public static void tearDown(){
         DriverFactory.killDriver();
     }

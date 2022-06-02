@@ -2,25 +2,31 @@ package logics;
 
 import config.DriverFactory;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.TapOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.junit.Assert;
 import pages.AlarmPage;
+import utils.Utility;
 
 public class AlarmLogic {
     private AlarmPage alarmPage;
-    private TouchAction touchAction;
-
+    private static TouchAction touchAction;
     public AlarmLogic(){
-        alarmPage = new AlarmPage();
         touchAction = new TouchAction(DriverFactory.getDriver());
+        alarmPage = new AlarmPage();
 
 
     }
+
     public void acessoOpcaoAlarme(){
         DriverFactory.getDriver().findElement(alarmPage.getAlarmBtn()).click();
     }
     public void clicoEmAddAlarme(){
-        touchAction.tap(PointOption.point(534, 2070)).perform();
+//        System.out.println(DriverFactory.getDriver().manage().window().getSize().height);
+//        //2070
+//        System.out.println(DriverFactory.getDriver().manage().window().getSize().width);
+//        //534
+        touchAction.tap(Utility.getElementByPercent(93, 15)).perform();
     }
     public void alteroParaTeclado(){
         DriverFactory.getDriver().findElement(alarmPage.getTecladoBtn()).click();

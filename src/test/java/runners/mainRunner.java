@@ -9,8 +9,13 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/resources/features"},
         glue = {"steps"},
+        plugin = {
+                "utils.TestDetails",
+                "pretty",
+                "html:target/reports/Relatorio.html"
+        },
         snippets = SnippetType.CAMELCASE,
-        tags = "@alarm",
+        tags = "@alarm_valido",
         dryRun = false
 )
 public class mainRunner {
